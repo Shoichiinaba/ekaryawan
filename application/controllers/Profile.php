@@ -25,7 +25,7 @@ class Profile extends AUTH_Controller {
 		$id = $this->userdata->id;
 		$data = $this->input->post();
 		if ($this->form_validation->run() == TRUE) {
-			$config['upload_path'] = './assets/img/';
+			$config['upload_path'] = './assets/dist/img/';
 			$config['allowed_types'] = 'jpg|png';
 			
 			$this->load->library('upload', $config);

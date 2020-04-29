@@ -1,60 +1,42 @@
-<body class="hold-transition skin-green sidebar-mini">
-<header class="main-header">
-    <!-- Logo -->
-    <a href="<?php echo site_url(''); ?>" class="logo">
-      <span class="logo-mini"><small>
-                            <img width="50%" height="50%" src="<?php echo base_url(); ?>assets/img/epkh.png">
-                        </small>
-      </span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">
-        <b>e</b>PKH</span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
 
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php echo $userdata->nama; ?></span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header" style="background: url('assets/img/prof.jpg') center;">
-                <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="img-circle" alt="User Image">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-cyan elevation-2 navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
 
-                <p style= 'color: purple'>
-                  <?php echo $userdata->nama; ?> / <?php echo $userdata->role; ?>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+    <li class="nav-item dropdown user-menu">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          <img src="<?php echo base_url(); ?>assets/dist/img/<?php echo $userdata->foto; ?>" class="user-image img-circle elevation-2" alt="User Image">
+          <span class="d-none d-md-inline"><?php echo $userdata->nama; ?></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <!-- User image -->
+          <li class="user-header bg-primary">
+            <img src="<?php echo base_url(); ?>assets/dist/img/<?php echo $userdata->foto; ?>" class="img-circle elevation-2" alt="User Image">
+
+            <p style= 'color: purple'>
+            <?php echo $userdata->nama; ?> / <?php echo $userdata->role; ?>
                   <small>Member since Nov. 2018</small>
-                </p>
-              </li>
-              
-              <!-- Menu Footer-->
-              <li class="user-footer">
-            <div class="pull-left">
-              <a href="<?php echo base_url()?>index.php/Profile" class="btn bg-olive btn-flat"><i class="fa fa-optin-monster"></i> Profile</a>
-            </div>
-            <div class="pull-right">
-              <a href="<?php echo base_url()?>index.php/Auth/logout" class="btn bg-purple btn-flat"><i class="fa fa-share-square-o"></i> Sign out</a>
-               
-            </div>
+            </p>
           </li>
-            </ul>
-            </ul>
-          </li>
+          <!-- Menu Body -->
+          <li class="user-body">
           
+          </li>
+          <!-- Menu Footer-->
+          <li class="user-footer">
+            <a href="<?php echo base_url()?>Profile" class="btn btn-default btn-flat">Profile</a>
+            <a href="<?php echo base_url()?>Auth/logout" class="btn btn-default btn-flat float-right">Sign out</a>
+          </li>
         </ul>
-      </div>
-    </nav>
-  </header>
-</body>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+  

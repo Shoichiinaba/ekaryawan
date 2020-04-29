@@ -14,10 +14,10 @@ class Data_latih extends AUTH_Controller {
 	}
 	function index()
 	{	
-		$data['list']				=$this->M_latih->get_latih();
-		$data['jml_latih'] 			= $this->M_latih->get_jml_latih();
-		$data['jml_dapat'] 			= $this->M_latih->get_dapat();
-		$data['jml_tdapat'] 		= $this->M_latih->get_tdapat();
+		$data['latih']				=$this->M_latih->get_latih();
+		// $data['jml_latih'] 			= $this->M_latih->get_jml_latih();
+		// $data['jml_dapat'] 			= $this->M_latih->get_dapat();
+		// $data['jml_tdapat'] 		= $this->M_latih->get_tdapat();
 		$data['content'] 			='admin/data_latih';
 		$data['userdata'] 			= $this->userdata;
         $this->load->view($this->template, $data);	

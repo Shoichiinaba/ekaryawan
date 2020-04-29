@@ -1,89 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Log in</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link href="<?php echo base_url('assets/plugins/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" >
-        <link href="<?php echo base_url('assets/ode.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'); ?>" rel="stylesheet">  
-        <link href="<?php echo base_url('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css'); ?>" rel="stylesheet">        
-        <link href="<?php echo base_url('assets/dist/css/adminlte.min.css'); ?>" rel="stylesheet">
+	<title>Login Admin eCARfix</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+  <link rel="shortcut icon" type="image" href="<?php echo base_url('deslog/images/img-01.png'); ?>"/>
+  
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?= base_url('deslog/vendor/bootstrap/css/bootstrap.min.css')?>">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?= base_url('deslog/fonts/font-awesome-4.7.0/css/font-awesome.min.css')?>">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?= base_url('deslog/vendor/animate/animate.css')?>">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="<?= base_url('deslog/vendor/css-hamburgers/hamburgers.min.css')?>">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?= base_url('deslog/vendor/select2/select2.min.css')?>">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?= base_url('deslog/css/util.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?= base_url('deslog/css/main.css')?>">
+<!--===============================================================================================-->
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="deslog/images/img-01.png" alt="IMG">
+				</div>
 
-      <form action="../../index3.html" method="post">
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
+				<form action="<?php echo site_url('Auth/login'); ?>" method="post" class="login100-form validate-form">
+						<?php
+							if (validation_errors() || $this->session->flashdata('result_login')) {
+								?>
+								<div class="alert alert-error">
+									<button type="button" class="close" data-dismiss="alert">&times;</button>
+									<strong style= 'color: red';>>Warning!</strong>
+									<?php echo validation_errors(); ?>
+									<?php echo $this->session->flashdata('result_login'); ?>
+								</div>    
+							<?php } ?>
 
-      <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div>
-      <!-- /.social-auth-links -->
+						<div><?php 
+									$data=$this->session->flashdata('sukses');
+									if($data!=""){ ?>
+									<div class="alert alert-success"><strong>Sukses! </strong> <?=$data;?></div>
+							<?php } ?>
+					
+					<span class="login100-form-title">
+						Silahkan Masukan <h6><i>Email anda!!</i></h6>
+					</span>
 
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p>
-    </div>
-    <!-- /.login-card-body -->
-  </div>
-</div>
-<!-- /.login-box -->
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="username" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 
-<script src="<?php echo base_url('assets/plugins/jquery/jquery.min.js'); ?>"></script> 
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script> 
-<!-- iCheck -->
-<script src="<?php echo base_url('assets/dist/js/adminlte.min.js'); ?>"></script> 
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn">
+							<i class="fa fa-sign-in"> Login</i>
+						</button>
+					</div>
+
+					<div class="text-center p-t-136">
+						<a class="txt2" href="#">
+            <strong>Copyright <?= date('Y')?> <a href="https://shoichiinaba.github.io/">eKARYAWAN CARfix Semarang</a>.</strong> <i class="txt2">All rights </i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+  <script src="<?= base_url('deslog/vendor/jquery/jquery-3.2.1.min.js')?>"></script>
+<!--===============================================================================================-->
+	<script src="<?= base_url('deslog/vendor/bootstrap/js/popper.js')?>"></script>
+	<script src="<?= base_url('deslog/vendor/bootstrap/js/bootstrap.min.js')?>"></script>
+<!--===============================================================================================-->
+	<script src="<?= base_url('deslog/vendor/select2/select2.min.js')?>"></script>
+<!--===============================================================================================-->
+	<script src="<?= base_url('deslog/vendor/tilt/tilt.jquery.min.js')?>"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="<?= base_url('deslog/js/main.js')?>"></script>
 
 </body>
 </html>
