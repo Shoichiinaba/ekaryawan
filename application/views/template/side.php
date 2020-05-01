@@ -53,7 +53,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="<?php echo site_url('Data_selkaryawan'); ?>" class="nav-link">
               <i class="nav-icon fa fa-newspaper"></i>
               <p>
                 Data Karyawan Terseleksi
