@@ -17,61 +17,46 @@ $(document).ready(function(){
       </section>
             <section class="content">
                 <div class="row">
-                  <div class="col-xs-12">
-                    <div class="box-header with-border">
-                        <i ><h3 class="box-title">Masukkan File Excel</h3><i>
-                            <div class="bg-purple-gradient" class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                        <i class="fa fa-minus"></i></button>
-                                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                                        <i class="fa fa-times"></i></button>
-                            </div>
-
-                                  <div class="box-body" >
-                                <!-- START LOCK SCREEN ITEM -->
-                                <div class="lockscreen-item" >
-                                  <!-- lockscreen image -->
-                                  <div class="lockscreen-image">
-                                    <img src="<?php echo base_url().''; ?>" alt="User Image">
-                                  </div>
-                                  <!-- /.lockscreen-image -->
-
-                                  <!-- lockscreen credentials (contains the form) -->
-                                  <form class="lockscreen-credentials">
-                                    <div class="input-group has-error">
-                                      <input type="botton" id="inputSuccess" class="form-control" placeholder="Tekan Pilih File ">
-
-                                      <div class="input-group-btn">
-                                        <button type="button" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
-                                      </div>
-                                    </div>
-                                  </form>
-                                </div>
-                                <!-- /.lockscreen-item -->
-                                
-                            <form method="post" action="<?php echo base_url("tentukan_bantuan/form"); ?>" enctype="multipart/form-data">
-                                <div class="row">
-                                <div class="col-xs-5"></div>
-                                <div class="col-xs-2">
-                                                <input type="file" name="file">
-                                </div>
-                                </div>
-                                <br>
-                                <div class="text-center">
-                                <div class="col-xs-12">
-                                              <button class="btn bg-purple-gradient btn-lrg ajax" type="submit"  name="preview"><i class="fa fa-recycle"></i> Seleksi Karyawan </button>
-                                            </div>
-                                </div>
-                                    <br/>
-                            </form>
-                    </div>
-                          <!-- /.box-body -->
-                          <div class="box-footer">
-                            <spam class="text-purple"> Halaman Untuk Seleksi Yang Memerlukan Data Banyak </spam> 
-                          </div>
-                  <!-- /.widget-user -->
+                  <div class="col-md-4">
                   </div>
-                </div>
+                  <!-- /.col -->
+                  <div class="col-md-4">
+                    <div class="card card-widget widget-user">
+                      <div class="widget-user-header text-white"
+                          style="background: url('<?php echo base_url().'assets/dist/img/q.png'; ?>') center center;">
+                        <h3 class="widget-user-username text-center">Masukan Daftar Karyawan</h3>
+                      </div>
+                      <div class="widget-user-image">
+                        <img class="img-circle" src="<?php echo base_url().'assets/dist/img/carfix1.png'; ?>" alt="User Avatar">
+                      </div>
+                      <div class="card-footer">
+                        <div class="row"> 
+                          <form method="post" action="<?php echo base_url("tentukan_bantuan/form"); ?>" enctype="multipart/form-data">
+                            <div class="row">
+                              <div class="col-xs-5"></div>
+                                <div class="col-xs-2">
+                                    <input type="file" name="file">
+                                </div>
+                              </div>
+                                  <br>
+                                <div class="row">
+                                  <div class="col-md-4">
+                                  </div>
+                                    <div class="col-md-8">
+                                        <button class="btn btn-outline-info btn-block" type="submit"  name="preview"><i class="fa fa-recycle"></i> Seleksi Karyawan </button>
+                                    </div>
+                                  </div>
+                            </div>
+                            <br/>
+                        </form>
+                      </div>
+                    </div>
+                    <!-- /.widget-user -->
+                  </div>
+                  <!-- /.col -->
+                    <div class="col-md-4">
+                    </div>
+              </div>
             </section>
 
                 <section class="content">
@@ -186,8 +171,8 @@ $(document).ready(function(){
                                       echo "<td".$loyalitas_td.">".$loyalitas."<input type='hidden' name='loyalitas[]' value='$loyalitas'/></td>";
                                       echo "<td".$komunikasi_td.">".$komunikasi."<input type='hidden' name='komunikasi[]' value='$komunikasi'/></td>";
                                       echo "<td".$kerajinan_td.">".$kerajinan."<input type='hidden' name='kerajinan[]' value='$kerajinan'/></td>";
-                                      echo "<td style= 'color: red';>".round($perhitungan['nilai']['Lolos'], 6)."<input  name='nilai_lolos[]' value='".round($perhitungan['nilai']['Lolos'], 5)."'/></td>";
-                                      echo "<td style= 'color: red';>".round($perhitungan['nilai']['Tidak Lolos'], 6)."<input name='nilai_tlolos[]' value='".round($perhitungan['nilai']['Tidak Lolos'], 5)."'/></td>";
+                                      echo "<td style= 'color: red';>".round($perhitungan['nilai']['Lolos'], 6)."<input type='hidden' name='nilai_lolos[]' value='".round($perhitungan['nilai']['Lolos'], 5)."'/></td>";
+                                      echo "<td style= 'color: red';>".round($perhitungan['nilai']['Tidak Lolos'], 6)."<input type='hidden' name='nilai_tlolos[]' value='".round($perhitungan['nilai']['Tidak Lolos'], 5)."'/></td>";
                                       echo "<td style= 'color: blue';>".$perhitungan['Status']."<input type='hidden' name='hasil[]' value='".$perhitungan['Status']."'/></td>";
                                       echo "</tr>";
                                     }

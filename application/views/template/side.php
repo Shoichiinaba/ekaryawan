@@ -79,13 +79,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                <a href="<?php echo site_url('User/daftar'); ?>" class="nav-link">
                   <i class="fa fa-user-plus nav-icon"></i>
                   <p>Tambah Admin</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
+                <a href="<?php echo site_url('User/'); ?>" class="nav-link">
                   <i class="fa fa-list-ol nav-icon"></i>
                   <p>List Admin</p>
                 </a>

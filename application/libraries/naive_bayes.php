@@ -113,9 +113,9 @@ class Naive_Bayes{
 					
 				}
 				$akhir = array("Status"=>$ket[0]);
-				$akhir["angka"] = array();
+				$akhir["nilai"] = array();
 				for($v=0; $v<count($ket); $v++){
-					$akhir["angka"][$ket[$v]] = round($data[$v], 6);
+					$akhir["nilai"][$ket[$v]] = round($data[$v], 6);
 				}
 				return $akhir;
 		}

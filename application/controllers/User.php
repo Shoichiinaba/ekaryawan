@@ -21,4 +21,13 @@ class User extends AUTH_Controller {
           
 	}
 
+	function daftar()
+	{
+		// $data['list']=$this->M_admin->get_data_admin();
+		$data['content'] = 'admin/daftar';
+		$data['userdata'] 	= $this->userdata;
+		$this->load->view($this->template, $data);	
+          
+	}
+
 }
