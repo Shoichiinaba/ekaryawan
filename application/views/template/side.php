@@ -1,8 +1,8 @@
 
  <!-- Main Sidebar Container -->
- <aside class="main-sidebar elevation-4 sidebar-dark-danger">
+ <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?= base_url('Dashboard'); ?>" class="brand-link navbar-lightblue">
+    <a href="<?= base_url('Dashboard'); ?>" class="brand-link">
       <img src="<?= base_url(); ?>assets/dist/img/default.png"
            alt="AdminLTE Logo"
            class="brand-image"
@@ -45,7 +45,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="<?php echo site_url('tentukan_bantuan'); ?>" class="nav-link">
               <i class="nav-icon fa fa-stethoscope"></i>
               <p>
                 Prediksi Kontrak
@@ -61,7 +61,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-calendar-alt"></i>
               <p>
                 Surat Kontrak Masuk
