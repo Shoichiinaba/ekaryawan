@@ -73,22 +73,44 @@ class tentukan_bantuan extends AUTH_Controller {
 	}
 
 	
-    function simpan_perhitungan(){
-    	$this->load->model('M_HAdmin');
-    	$nip = $_GET['nip'];
-    	$nama = $_GET['nama'];
-    	$data_form = $_GET['data_form'];
-    	$hasil = $_GET['hasil'];
-    	$perpanjang = $_GET['perpanjang'];
-    	$tidak_diperpanjang = $_GET['tidak_diperpanjang'];
-    	$kirim = $_GET['kirim'];
-		$tgl_kontrak = date('d/m/Y');
-		
-    	$r = $this->M_HAdmin->simpan_hasil_perhitungan($data_form, $hasil, $nama, $nip, $kirim, $perpanjang, $tidak_diperpanjang, $tgl_kontrak);
-    	echo json_encode(array( 
-    		'respon' => $r,
-    		'status' => ($r) ? 200 : 404
-    	 ));
-    }
+    function simpan(){
+    	$NIK=$_POST['NIK'];
+    	$nama =$_POST['nama'];
+    	$absensi =$_POST['absensi'];
+    	$skill =$_POST['skill'];
+    	$pelayanan =$_POST['pelayanan'];
+    	$kerjasama =$_POST['kerjasama'];
+		$loyalitas =$_POST['loyalitas'];
+		$komunikasi =$_POST['komunikasi'];
+		$kerajinan =$_POST['kerajinan'];
+    	$nilai_lolos =$_POST['nilai_lolos'];
+		$nilai_t_lolos =$_POST['nilai_t_lolos'];
+    	$setatus =$_POST['setatus'];
+		$status_acc ='1';
+		$tgl_kontrak =date('d/m/Y');
+
+    	$data = array();
+    	for($i = 0; $i<count($NIK); $i++){
+    		array_push($data, array(
+    			'NIK'=>$NIK[$i],
+				'nama'=>$nama[$i],
+				'absensi'=>$absensi[$i],
+				'skill'=>$skill[$i],
+				'pelayanan'=>$pelayanan[$i],
+				'kerjasama'=>$kerjasama[$i],
+				'loyalitas'=>$loyalitas[$i],
+				'komunikasi'=>$komunikasi[$i],
+				'kerajinan'=>$kerajinan[$i],
+				'nilai_lolos'=>$nilai_lolos[$i],
+				'nilai_t_lolos'=>$nilai_t_lolos[$i],
+				'setatus'=>$setatus[$i],
+				'status_acc'=>$status_acc[$i],
+				'tgl_kontrak'=>$tgl_kontrak,
+    		));
+    	}
+    	$this->M_bantuan->insert_multiple($data);
+		redirect('tentukan_bantuan');
+	
+	}
 	
 }

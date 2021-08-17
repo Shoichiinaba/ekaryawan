@@ -4,58 +4,74 @@ $(document).ready(function(){
     $("#kosong").hide();
   });
   </script>
+  
 
   <div class="content-wrapper">
   <div class="container">
       <!-- Content Header (Page header) -->
       <section class="content-header">
-        <h1>Tentukan<small>Seleksi Karyawan </small></h1>
+        <h1>Tentukan<small>Prediksi Penerima Bantuan </small></h1>
         <ol class="breadcrumb">
-          <li><a href="<?php echo site_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Home > Halaman Seleksi</a></li>
+          <li><a href="<?php echo site_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Home > Prediksi Penerima</a></li>
         </ol>
       </section>
             <section class="content">
                 <div class="row">
-                  <div class="col-md-4">
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-md-4">
-                    <div class="card card-widget widget-user">
-                      <div class="widget-user-header text-white"
-                          style="background: url('<?php echo base_url().'assets/dist/img/q.png'; ?>') center center;">
-                        <h3 class="widget-user-username text-center">Masukan Daftar Karyawan</h3>
-                      </div>
-                      <div class="widget-user-image">
-                        <img class="img-circle" src="<?php echo base_url().'assets/dist/img/carfix1.png'; ?>" alt="User Avatar">
-                      </div>
-                      <div class="card-footer">
-                        <div class="row"> 
-                          <form method="post" action="<?php echo base_url("tentukan_bantuan/form"); ?>" enctype="multipart/form-data">
-                            <div class="row">
-                              <div class="col-xs-5"></div>
-                                <div class="col-xs-2">
-                                    <input type="file" name="file">
-                                </div>
-                              </div>
-                                  <br>
-                                <div class="row">
-                                  <div class="col-md-4">
-                                  </div>
-                                    <div class="col-md-8">
-                                        <button class="btn btn-outline-info btn-block" type="submit"  name="preview"><i class="fa fa-recycle"></i> Seleksi Karyawan </button>
-                                    </div>
-                                  </div>
+                  <div class="col-xs-12">
+                    <div class="box-header with-border">
+                        <i ><h3 class="box-title">Masukkan File Excel</h3><i>
+                            <div class="bg-olive" class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                        <i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                                        <i class="fa fa-times"></i></button>
                             </div>
-                            <br/>
-                        </form>
-                      </div>
+
+                                  <div class="box-body" >
+                                <!-- START LOCK SCREEN ITEM -->
+                                <div class="lockscreen-item" >
+                                  <!-- lockscreen image -->
+                                  <div class="lockscreen-image">
+                                    <img src="<?php echo base_url().'assets/img/excel1.png'; ?>" alt="User Image">
+                                  </div>
+                                  <!-- /.lockscreen-image -->
+
+                                  <!-- lockscreen credentials (contains the form) -->
+                                  <form class="lockscreen-credentials">
+                                    <div class="input-group has-error">
+                                      <input type="botton" id="inputSuccess" class="form-control" placeholder="Tekan Pilih File ">
+
+                                      <div class="input-group-btn">
+                                        <button type="button" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
+                                      </div>
+                                    </div>
+                                  </form>
+                                </div>
+                                <!-- /.lockscreen-item -->
+                                
+                            <form method="post" action="<?php echo base_url("tentukan_bantuan/form"); ?>" enctype="multipart/form-data">
+                                <div class="row">
+                                <div class="col-xs-5"></div>
+                                <div class="col-xs-2">
+                                                <input type="file" name="file">
+                                </div>
+                                </div>
+                                <br>
+                                <div class="text-center">
+                                <div class="col-xs-12">
+                                              <button class="btn btn-primary btn-lrg ajax" type="submit"  name="preview"><i class="fa fa-mail-reply-all"></i> Prediksi </button>
+                                            </div>
+                                </div>
+                                    <br/>
+                            </form>
                     </div>
-                    <!-- /.widget-user -->
+                          <!-- /.box-body -->
+                          <div class="box-footer">
+                            <spam class="text-green"> Menentuakan siapa yang mendapatkan Bantuan dengan banyak data </spam> 
+                          </div>
+                  <!-- /.widget-user -->
                   </div>
-                  <!-- /.col -->
-                    <div class="col-md-4">
-                    </div>
-              </div>
+                </div>
             </section>
 
                 <section class="content">
@@ -63,7 +79,7 @@ $(document).ready(function(){
                     <div class="col-md-12">
                        <div class="box box-primary">
                           <div class="box-header with-border">
-                          <h3 class="box-title">Data Hasil Seleksi</h3> 
+                          <h3 class="box-title">Tabel Preview</h3> 
                           <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                             </button>
@@ -73,8 +89,8 @@ $(document).ready(function(){
                       <div class="box-body">
                         <div class="table-responsive">
                             <table class="table no-margin">
-                              <!-- isi Prediksi -->
-                              <?php
+ 
+                            <?php
                                 if(isset($_POST['preview'])){ // Jika user menekan tombol Preview pada form 
                                   if(isset($upload_error)){ // Jika proses upload gagal
                                     echo "<div style='color: red;'>".$upload_error."</div>"; // Muncul pesan error upload
@@ -86,7 +102,7 @@ $(document).ready(function(){
                                   Semua data belum diisi, Ada <span id='jumlah_kosong'></span> data yang belum diisi.
                                   </div>";
                                   // Buat sebuah tag form untuk proses import data ke database
-                                  echo "<form id='form-save' method='post' action=''";
+                                  echo "<form id='form-save' method='post' action=''>";
                                   
                                   
                                   echo "<table border='1' cellpadding='8'>
@@ -96,7 +112,7 @@ $(document).ready(function(){
                                     <table class='table table-bordered table-striped' id='example2'>
                                   <th colspan='17'>Tampil Data Prediksi</th>
                                   </tr>
-                                  <tr class='bg-purple'>
+                                  <tr class='bg-olive'>
                                       <th>NIK</th>
                                       <th>Nama Karyawan</th>
                                       <th>Absensi</th>
@@ -118,7 +134,7 @@ $(document).ready(function(){
                                   // $sheet adalah variabel yang dikirim dari controller
                                   foreach($sheet as $row){ 
                                     // Ambil data pada excel sesuai Kolom
-                                    $NIK = $row['A']; 
+                                     $NIK = $row['A']; 
                                     $nama = $row['B']; 
                                     $absensi = $row['C']; 
                                     $skill = $row['D']; 
@@ -145,6 +161,7 @@ $(document).ready(function(){
                                   
                                     if($numrow > 1)
                                     {
+                                
                                       // Validasi apakah semua data telah diisi
                                       $NIK_td = ( ! empty($NIK))? "" : " style='background: #E07171;'"; 
                                       $nama_td = ( ! empty($nama))? "" : " style='background: #E07171;'";
@@ -160,7 +177,7 @@ $(document).ready(function(){
                                           if(empty($NIK) or empty($nama) or empty($absensi) or empty($skill) or empty($pelayanan) or empty($kerjasama) or empty($loyalitas) or empty($komunikasi) or empty($kerajinan)){
                                               $kosong++;
                                     }
-                                      echo "<tr>";
+                                    echo "<tr>";
                                       echo "<td".$NIK_td.">".$NIK."<input type='hidden' name='NIK[]' value='$NIK'/> </td>";
                                       echo "<td".$nama_td.">".$nama."<input type='hidden' name='nama[]' value='$nama'/></td>";
                                       echo "<td".$absensi_td.">".$absensi."<input type='hidden' name='absensi[]' value='$absensi'/></td>";
@@ -170,8 +187,8 @@ $(document).ready(function(){
                                       echo "<td".$loyalitas_td.">".$loyalitas."<input type='hidden' name='loyalitas[]' value='$loyalitas'/></td>";
                                       echo "<td".$komunikasi_td.">".$komunikasi."<input type='hidden' name='komunikasi[]' value='$komunikasi'/></td>";
                                       echo "<td".$kerajinan_td.">".$kerajinan."<input type='hidden' name='kerajinan[]' value='$kerajinan'/></td>";
-                                      echo "<td style= 'color: red';>".round($perhitungan['nilai']['Lolos'], 5)."<input type='hidden' name='nilai_lolos[]' value='".round($perhitungan['nilai']['Lolos'], 5)."'/></td>";
-                                      echo "<td style= 'color: red';>".round($perhitungan['nilai']['Tidak Lolos'], 5)."<input type='hidden' name='nilai_t_lolos[]' value='".round($perhitungan['nilai']['Tidak Lolos'], 5)."'/></td>";
+                                      echo "<td style= 'color: red';>".round($perhitungan['nilai']['Lolos'], 8)."<input type='hidden' name='nilai_lolos[]' value='".round($perhitungan['nilai']['Lolos'], 5)."'/></td>";
+                                      echo "<td style= 'color: red';>".round($perhitungan['nilai']['Tidak Lolos'], 8)."<input type='hidden' name='nilai_t_lolos[]' value='".round($perhitungan['nilai']['Tidak Lolos'], 5)."'/></td>";
                                       echo "<td style= 'color: blue';>".$perhitungan['Status']."<input type='hidden' name='setatus[]' value='".$perhitungan['Status']."'/></td>";
                                       echo "</tr>";
                                     }
@@ -199,18 +216,19 @@ $(document).ready(function(){
                                     echo "<hr>";
                                     
                                     // Buat sebuah tombol untuk mengimport data ke database
-                                    echo "<button type='submit' class='btn bg-olive'> <i class='fa fa-rocket'>  Simpan Seleksi</i></button>";
+                                    echo "<button type='submit' class='btn btn-success'> <i class='fa fa-rocket'>  Simpan</i></button>";
                                     echo " ";
-                                    echo "<a href='".base_url("tentukan_bantuan")."'class='btn bg-orange'> <i class='fa fa-times-circle'> Cancel </i></a>";
+                                    echo "<a href='".base_url("tentukan_bantuan")."'class='btn bg-navy'> <i class='fa fa-times-circle'> Cancel </i></a>";
                                     echo " <br>";
                                     echo " <br>";
                                     // echo "<button type='button' name='save' id='save' class='btn btn-info'>Simpan</button>";
                                   }
                                   echo "</form>";
                                 }
-                                ?>
-                              <!-- Akhir isi Prediksi -->
-                            <div id="insert_item_data"></div>
+                                ?>     
+                                  <div id="insert_item_data"></div>
+                        </div>
+                          </div>
                             </table>
                       </div>
                     </div>
@@ -220,11 +238,10 @@ $(document).ready(function(){
           </section>
         </div>
 </div>
-<!-- Kirim HRD -->
 <script>
   $(document).ready(function(){
     
-    $('.bg-olive').click(function(e){
+    $('.btn-success').click(function(e){
       e.preventDefault();
       $.ajax({
         url:"<?php echo base_url().'tentukan_bantuan/simpan/'; ?>",
@@ -232,10 +249,10 @@ $(document).ready(function(){
         method:'POST',
         success:function(data){
           console.log(data);
-          swal.fire("sukses","Data Berhasil Di Simpan", "success");
+          swal("sukses","Data Berhasil Di Simpan", "success");
         },
         error:function(data){
-          swal.fire("Oops....", "Data Gagal Di Simpan (NIK Sudah Diseleksi) :(", "error");
+          swal("Oops....", "Data Gagal Disimpan (NO.kk Sudah Ada) :(", "error");
         }
 
       }).fail(function(t, j){

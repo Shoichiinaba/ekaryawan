@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="<?= base_url(); ?>assets/dist/css/adminlte.min.css">
         <!-- SweetAlert2 -->
         <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+        <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/sweetalert2/sweetalert2.min.css">
         <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/bootstrap-slider/css/bootstrap-slider.min.css">   
                      
 

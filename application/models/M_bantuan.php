@@ -31,7 +31,7 @@ class M_bantuan extends CI_Model {
 
 	public function insert_multiple($data)
 	{
-		return $this->db->insert_batch('hasil_prediksi', $data);
+		return $this->db->insert_batch('hasil_seleksi', $data);
 	}
 
 }
